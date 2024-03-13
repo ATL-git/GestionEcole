@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section id="promoContainer"></section>
+        <section id="fromAddPromo">
+            <form>
+                <div>
+                    <label for="name">nom de la promo</label>
+                    <input type="text" id="name">
+                </div>
+                <div>
+                    <label for="startDate">date de debut de la promo</label>
+                    <input type="date" id="startDate">
+                </div>
+                <div>
+                    <label for="endDate">date de fin de la promo</label>
+                    <input type="date" id="endDate">
+                </div>
+            </form>
+            <button onclick="addPromo()">ajouter la promo</button>
+        </section>
+    </main>
+    <script src="/assets/javascript/script.js"></script>
+</body>
+</html>

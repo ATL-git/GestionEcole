@@ -1,0 +1,25 @@
+#promoContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.promo{
+
+    width: 400px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    
+    padding-bottom: 20px;
+
+
+}
+
+.divButton{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+

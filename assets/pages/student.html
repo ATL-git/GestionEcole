@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/student.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Appli ATL</h1>
+    </header>
+    <main>
+        <section>
+            <h2>etudiant liste</h2>
+            <div id="studentContainer">
+
+            </div>
+        </section>
+        <section id="fromAddStudent">
+            <form>
+                <div>
+                    <label for="firstName">nom de l'éleve :</label>
+                    <input type="text" id="firstName">
+                </div>
+                <div>
+                    <label for="lastName">nom de famille de l'éleve :</label>
+                    <input type="text" id="lastName">
+                </div>
+                <div>
+                    <label for="age">Quel age a l'éleve ?</label>
+                    <input type="number" id="age">
+                </div>
+            </form>
+            <button onclick="addStudent()">ajouter la promo</button>
+        </section>
+    </main>
+    <footer>
+        <p>copyright ATL</p>
+    </footer>
+    <script src="/assets/javascript/studdent.js"></script>
+</body>
+
+</html>

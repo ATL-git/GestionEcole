@@ -1,0 +1,13 @@
+.container{
+    border: 1px solid black;
+    
+   
+}
+
+#studentContainer{
+    display: flex;
+    text-align: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    
+}
