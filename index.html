@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
+    <header>
+        <h1>ATL School</h1>
+    </header>
     <main>
+        <button onclick="hiddenPromo()" id="buttonHidden">Ajouter une Promo</button>
         <section id="promoContainer"></section>
-        <section id="fromAddPromo">
+
+        <section id="fromAddPromo" class="hidden">
+
             <form>
                 <div>
                     <label for="name">nom de la promo</label>
@@ -26,7 +39,10 @@
             </form>
             <button onclick="addPromo()">ajouter la promo</button>
         </section>
+       
     </main>
+    <footer></footer>
     <script src="/assets/javascript/script.js"></script>
 </body>
+
 </html>

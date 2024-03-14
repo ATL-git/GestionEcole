@@ -4,22 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/student.css">
     <title>Document</title>
 </head>
 
 <body>
     <header>
-        <h1>Appli ATL</h1>
+        <header>
+            <h1>ATL School</h1>
+        </header>
     </header>
     <main>
         <section>
             <h2>etudiant liste</h2>
+            <button onclick="hiddenStudent()" id="buttonHidden">Ajouter un éléve</button>
             <div id="studentContainer">
 
             </div>
         </section>
-        <section id="fromAddStudent">
+        <section id="fromAddStudent" class="hidden">
             <form>
                 <div>
                     <label for="firstName">nom de l'éleve :</label>

@@ -1,13 +1,88 @@
-.container{
-    border: 1px solid black;
-    
-   
+body {
+    font-family: "Nunito Sans", sans-serif;
+    background-color: bisque;
+    padding: 0;
+    margin: 0;
 }
 
-#studentContainer{
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    padding: 50px;
+    margin-bottom: 100px;
+    background-color: burlywood;
+    color: bisque;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    margin: 0;
+
+}
+
+.container {
+    border: 1px solid black;
+
+
+}
+
+#studentContainer {
     display: flex;
     text-align: center;
     gap: 20px;
     flex-wrap: wrap;
+
+}
+
+.hidden {
+    display: none !important;
+}
+
+#buttonHidden {
+    display: block;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
+    background-color: burlywood;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#buttonHidden:hover {
+    transform: scale(1.1);
+}
+
+.container {
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    background-color: burlywood;
+    padding-bottom: 20px;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: bold;
     
+}
+
+.divButton{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.divButton button{
+    border-radius: 10px;
+    padding: 8px;
+    background-color:bisque ;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.divButton button:hover{
+    transform: scale(1.1);
 }
