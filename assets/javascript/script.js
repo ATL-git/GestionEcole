@@ -23,7 +23,7 @@ async function displayPromo() {
     promoContainer.innerHTML = ""
 
     promos.forEach(promo => {
-        
+
         let promoDiv = document.createElement('div')
         promoContainer.appendChild(promoDiv)
         promoDiv.classList.add('promo')
@@ -31,6 +31,24 @@ async function displayPromo() {
         promoDiv.appendChild(titrePromo)
         titrePromo.classList.add('titrePromo')
         titrePromo.textContent = promo.name
+        let startDatePromo = document.createElement('p')
+        promoDiv.appendChild(startDatePromo)
+        if (promo.startDate != null) {
+            startDatePromo.classList.add('startDatePromo')
+
+            startPromo = new Date(promo.startDate).toLocaleDateString("fr-FR")
+
+            startDatePromo.textContent = `Debut de session : ${startPromo}`
+        }
+        let endDatePromo = document.createElement('p')
+        promoDiv.appendChild(endDatePromo)
+        if (promo.endDate != null) {
+            endDatePromo.classList.add('endDatePromo')
+
+            endPromo = new Date(promo.endDate).toLocaleDateString("fr-FR")
+
+            endDatePromo.textContent = `Fin de session : ${endPromo}`
+        }
         let divButton = document.createElement('div')
         promoDiv.appendChild(divButton)
         divButton.classList.add('divButton')
@@ -45,24 +63,43 @@ async function displayPromo() {
         divButton.appendChild(modif)
         modif.textContent = 'modifier la promo'
         modif.addEventListener('click', () => {
-           
-                let changDiv = document.createElement('div')
-                let changPromoName = document.createElement('input')
-                let changStartDate = document.createElement('input')
-                changStartDate.type = "date"
-                let changEndDate = document.createElement('input')
-                changEndDate.type = "date"
-                let validName = document.createElement('button')
-                validName.textContent = "Valider changement"
-                promoDiv.appendChild(changDiv)
-                changDiv.appendChild(validName)
-                changDiv.appendChild(changPromoName)
-                changDiv.appendChild(changStartDate)
-                changDiv.appendChild(changEndDate)
-                changPromoName.placeholder = promo.name
 
-            
-           
+            let changDiv = document.createElement('div')
+            changDiv.classList.add("changPromo")
+            promoDiv.appendChild(changDiv)
+
+            let changPromoName = document.createElement('input')
+            changDiv.appendChild(changPromoName)
+            changPromoName.value = promo.name
+            let labelStartDate = document.createElement('label')
+            labelStartDate.for = "modifDate"
+            labelStartDate.textContent = "nouvelle date d'entrée :"
+            let changStartDate = document.createElement('input')
+            changStartDate.type = "date"
+            changStartDate.id = "modifDate"
+            changDiv.appendChild(labelStartDate)
+            changDiv.appendChild(changStartDate)
+
+            let changEndDate = document.createElement('input')
+            changEndDate.type = "date"
+            let labelEndDate = document.createElement('label')
+            labelEndDate.for = "modifDate"
+            labelEndDate.textContent = "nouvelle date de fin :"
+            changDiv.appendChild(labelEndDate)
+            changDiv.appendChild(changEndDate)
+            let divButton = document.createElement('div')
+            divButton.classList.add("divButton")
+            promoDiv.appendChild(divButton)
+            let retourner = document.createElement('button')
+            retourner.textContent = "annuler"
+            divButton.appendChild(retourner)
+            let validName = document.createElement('button')
+            validName.textContent = "Valider changement"
+            divButton.appendChild(validName)
+            retourner.addEventListener('click', () => {
+                displayPromo()
+            })
+
             validName.addEventListener('click', () => {
                 namePromoChang = changPromoName.value
                 startDateChang = changStartDate.value
@@ -106,6 +143,7 @@ async function addPromo() {
         body: JSON.stringify(body)
     })
     const data = await response.json()
+    hiddenPromo()
     displayPromo()
 }
 

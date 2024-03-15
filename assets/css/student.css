@@ -3,6 +3,24 @@ body {
     background-color: bisque;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+    margin: 0;
+    height: 100px;
+    font-size: 30px;
+    margin-top: 60px;
+
+
 }
 
 
@@ -27,6 +45,7 @@ h1 {
 
 #studentContainer {
     display: flex;
+    justify-content: center;
     text-align: center;
     gap: 20px;
     flex-wrap: wrap;
@@ -64,25 +83,126 @@ h1 {
     padding-bottom: 20px;
     font-family: "Nunito Sans", sans-serif;
     font-weight: bold;
-    
+
 }
 
-.divButton{
+.divButton {
     display: flex;
     justify-content: center;
     gap: 8px;
 }
 
-.divButton button{
+.divButton button {
     border-radius: 10px;
     padding: 8px;
-    background-color:bisque ;
+    background-color: bisque;
     font-family: "Nunito Sans", sans-serif;
     font-weight: bold;
     font-size: 15px;
     cursor: pointer;
 }
 
-.divButton button:hover{
+.divButton button:hover {
     transform: scale(1.1);
 }
+
+.etudiantsListe {
+    text-align: center;
+    font-size: 30px;
+}
+
+#fromAddStudent {
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+#fromAddStudent div {
+    margin: 15px;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#fromAddStudent div input {
+    font-family: "Nunito Sans", sans-serif;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid black;
+    background-color: burlywood;
+    text-align: center;
+}
+
+#fromAddStudent button {
+    background-color: burlywood;
+    padding: 8px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+#fromAddStudent button:hover {
+    transform: scale(1.1);
+}
+
+.changPromo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+}
+
+.changPromo input {
+    margin: 5px;
+    margin-bottom: 10px;
+    height: 30px;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.changPromo button {
+  
+    background-color: bisque;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
+}
+.changPromo button:hover{
+    transform: scale(1.1);
+}
+
+.buttonDiv {
+
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+}
+
+.promoReturn{
+
+    position: absolute;
+    text-decoration: none;
+    border: 1px solid black;
+    padding : 8px ;
+    border-radius: 10px;
+    background-color:burlywood ;
+    color: black;
+    font-size: 18px;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: bold;
+    top: 200px;
+    left: 30px;
+}
+.promoReturn:hover{
+    transform: scale(1.1);
+}
+
+

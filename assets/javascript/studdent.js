@@ -1,6 +1,7 @@
 const studentContainer = document.querySelector('#studentContainer')
 const fromAddStudent = document.querySelector('#fromAddStudent')
 const buttonHidden = document.querySelector('#buttonHidden')
+const etudiantsListe = document.querySelector('.etudiantsListe')
 let namechang = ""
 let lastNameChang = ""
 let newAge = ""
@@ -19,14 +20,16 @@ async function getStudentByPromo() {
         }
     })
     const data = await response.json()
-    const students = data.students
-    return students
+    return data
 
 }
 
 async function displayStudents() {
-    const students = await getStudentByPromo()
+   
     studentContainer.innerHTML = ""
+   const promo = await getStudentByPromo()
+   const students = promo.students
+   etudiantsListe.textContent = `Liste des étudiants de ${promo.name} :`
 
     students.forEach(student => {
         let studentDiv = document.createElement('div')
@@ -51,19 +54,30 @@ async function displayStudents() {
         modif.addEventListener('click', () => {
            
             let changDiv = document.createElement('div')
+            changDiv.classList.add('changPromo')
             let changFirstName = document.createElement('input')
             let changLastName = document.createElement('input')
             let changAge = document.createElement('input')
+            let buttonDiv = document.createElement('div')
+            buttonDiv.classList.add('buttonDiv')
+            let retourner = document.createElement('button')
+            retourner.textContent = "annuler"
             let validName = document.createElement('button')
             validName.textContent = "Valider nouveau nom"
             studentDiv.appendChild(changDiv)
-            changDiv.appendChild(validName)
+            
             changDiv.appendChild(changFirstName)
             changDiv.appendChild(changLastName)
             changDiv.appendChild(changAge)
+            changDiv.appendChild(buttonDiv)
+            buttonDiv.appendChild(retourner)
+            buttonDiv.appendChild(validName)
             changFirstName.value = student.firstName
             changLastName.value = student.lastName
             changAge.value = student.age
+            retourner.addEventListener('click' , ()=>{
+                displayStudents()
+            })
             validName.addEventListener('click', () => {
                 namechang =  changFirstName.value
                 lastNameChang = changLastName.value

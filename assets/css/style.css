@@ -3,6 +3,24 @@ body {
     background-color: bisque;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+    margin: 0;
+    height: 100px;
+    font-size: 30px;
+    margin-top: 60px;
+
+
 }
 
 
@@ -34,7 +52,7 @@ h1 {
     text-align: center;
     background-color: burlywood;
     padding-bottom: 20px;
-
+box-shadow: 2px 2px black;
 
 }
 
@@ -107,7 +125,8 @@ h1 {
     font-size: 15px;
     margin-top: 30px;
 }
-#fromAddPromo button:hover{
+
+#fromAddPromo button:hover {
     transform: scale(1.1);
 }
 
@@ -131,4 +150,35 @@ h1 {
 
 #buttonHidden:hover {
     transform: scale(1.1);
+}
+
+.changPromo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+}
+
+.changPromo input {
+    margin: 5px;
+    margin-bottom: 10px;
+    height: 30px;
+}
+
+.changPromo button{
+    width: 80%;
+    margin: auto;
+    cursor: pointer;
+}
+
+.endDatePromo{
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.startDatePromo{
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
 }
