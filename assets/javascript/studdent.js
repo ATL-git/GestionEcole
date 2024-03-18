@@ -5,6 +5,7 @@ const etudiantsListe = document.querySelector('.etudiantsListe')
 let namechang = ""
 let lastNameChang = ""
 let newAge = ""
+let notTwins = false
 
 function getPromoId() {
     let url = window.location.href
@@ -25,11 +26,11 @@ async function getStudentByPromo() {
 }
 
 async function displayStudents() {
-   
+
     studentContainer.innerHTML = ""
-   const promo = await getStudentByPromo()
-   const students = promo.students
-   etudiantsListe.textContent = `Liste des étudiants de ${promo.name} :`
+    const promo = await getStudentByPromo()
+    const students = promo.students
+    etudiantsListe.textContent = `Liste des étudiants de ${promo.name} :`
 
     students.forEach(student => {
         let studentDiv = document.createElement('div')
@@ -52,38 +53,43 @@ async function displayStudents() {
             deleteStudent(student._id)
         })
         modif.addEventListener('click', () => {
-           
-            let changDiv = document.createElement('div')
-            changDiv.classList.add('changPromo')
-            let changFirstName = document.createElement('input')
-            let changLastName = document.createElement('input')
-            let changAge = document.createElement('input')
-            let buttonDiv = document.createElement('div')
-            buttonDiv.classList.add('buttonDiv')
-            let retourner = document.createElement('button')
-            retourner.textContent = "annuler"
-            let validName = document.createElement('button')
-            validName.textContent = "Valider nouveau nom"
-            studentDiv.appendChild(changDiv)
-            
-            changDiv.appendChild(changFirstName)
-            changDiv.appendChild(changLastName)
-            changDiv.appendChild(changAge)
-            changDiv.appendChild(buttonDiv)
-            buttonDiv.appendChild(retourner)
-            buttonDiv.appendChild(validName)
-            changFirstName.value = student.firstName
-            changLastName.value = student.lastName
-            changAge.value = student.age
-            retourner.addEventListener('click' , ()=>{
-                displayStudents()
-            })
-            validName.addEventListener('click', () => {
-                namechang =  changFirstName.value
-                lastNameChang = changLastName.value
-                newAge = changAge.value
-                changStudent(student._id)
-            })
+            if (notTwins == false) {
+                notTwins = true
+                let changDiv = document.createElement('div')
+                changDiv.classList.add('changPromo')
+                let changFirstName = document.createElement('input')
+                let changLastName = document.createElement('input')
+                let changAge = document.createElement('input')
+                let buttonDiv = document.createElement('div')
+                buttonDiv.classList.add('buttonDiv')
+                let retourner = document.createElement('button')
+                retourner.textContent = "annuler"
+                let validName = document.createElement('button')
+                validName.textContent = "Valider nouveau nom"
+                studentDiv.appendChild(changDiv)
+
+                changDiv.appendChild(changFirstName)
+                changDiv.appendChild(changLastName)
+                changDiv.appendChild(changAge)
+                changDiv.appendChild(buttonDiv)
+                buttonDiv.appendChild(retourner)
+                buttonDiv.appendChild(validName)
+                changFirstName.value = student.firstName
+                changLastName.value = student.lastName
+                changAge.value = student.age
+                retourner.addEventListener('click', () => {
+                    notTwins = false
+                    displayStudents()
+                })
+                validName.addEventListener('click', () => {
+                    notTwins = false
+                    namechang = changFirstName.value
+                    lastNameChang = changLastName.value
+                    newAge = changAge.value
+                    changStudent(student._id)
+                })
+            }
+
 
         })
 
@@ -140,13 +146,13 @@ async function changStudent(studentId) {
     displayStudents()
 }
 
-function hiddenStudent(){
+function hiddenStudent() {
 
     studentContainer.classList.toggle("hidden")
     fromAddStudent.classList.toggle("hidden")
     if (fromAddStudent.classList == "hidden") {
         buttonHidden.textContent = "Ajouter un éléve"
-    }else if (fromAddStudent.classList != "hidden") {
+    } else if (fromAddStudent.classList != "hidden") {
         buttonHidden.textContent = "retour"
     }
 }

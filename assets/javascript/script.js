@@ -6,6 +6,7 @@ const buttonHidden = document.querySelector('#buttonHidden')
 let namePromoChang = ""
 let startDateChang = ""
 let endDateChang = ""
+let notTwins = false
 
 async function getPromos() {
     const response = await fetch('http://146.59.242.125:3004/promos', {
@@ -64,48 +65,55 @@ async function displayPromo() {
         modif.textContent = 'modifier la promo'
         modif.addEventListener('click', () => {
 
-            let changDiv = document.createElement('div')
-            changDiv.classList.add("changPromo")
-            promoDiv.appendChild(changDiv)
+            if (notTwins == false) {
+                notTwins = true
+                let changDiv = document.createElement('div')
+                changDiv.classList.add("changPromo")
+                promoDiv.appendChild(changDiv)
 
-            let changPromoName = document.createElement('input')
-            changDiv.appendChild(changPromoName)
-            changPromoName.value = promo.name
-            let labelStartDate = document.createElement('label')
-            labelStartDate.for = "modifDate"
-            labelStartDate.textContent = "nouvelle date d'entrée :"
-            let changStartDate = document.createElement('input')
-            changStartDate.type = "date"
-            changStartDate.id = "modifDate"
-            changDiv.appendChild(labelStartDate)
-            changDiv.appendChild(changStartDate)
+                let changPromoName = document.createElement('input')
+                changDiv.appendChild(changPromoName)
+                changPromoName.value = promo.name
+                let labelStartDate = document.createElement('label')
+                labelStartDate.for = "modifDate"
+                labelStartDate.textContent = "nouvelle date d'entrée :"
+                let changStartDate = document.createElement('input')
+                changStartDate.type = "date"
+                changStartDate.id = "modifDate"
+                changDiv.appendChild(labelStartDate)
+                changDiv.appendChild(changStartDate)
 
-            let changEndDate = document.createElement('input')
-            changEndDate.type = "date"
-            let labelEndDate = document.createElement('label')
-            labelEndDate.for = "modifDate"
-            labelEndDate.textContent = "nouvelle date de fin :"
-            changDiv.appendChild(labelEndDate)
-            changDiv.appendChild(changEndDate)
-            let divButton = document.createElement('div')
-            divButton.classList.add("divButton")
-            promoDiv.appendChild(divButton)
-            let retourner = document.createElement('button')
-            retourner.textContent = "annuler"
-            divButton.appendChild(retourner)
-            let validName = document.createElement('button')
-            validName.textContent = "Valider changement"
-            divButton.appendChild(validName)
-            retourner.addEventListener('click', () => {
-                displayPromo()
-            })
+                let changEndDate = document.createElement('input')
+                changEndDate.type = "date"
+                let labelEndDate = document.createElement('label')
+                labelEndDate.for = "modifDate"
+                labelEndDate.textContent = "nouvelle date de fin :"
+                changDiv.appendChild(labelEndDate)
+                changDiv.appendChild(changEndDate)
+                let divButton = document.createElement('div')
+                divButton.classList.add("divButton")
+                promoDiv.appendChild(divButton)
+                let retourner = document.createElement('button')
+                retourner.textContent = "annuler"
+                divButton.appendChild(retourner)
+                let validName = document.createElement('button')
+                validName.textContent = "Valider changement"
+                divButton.appendChild(validName)
+                retourner.addEventListener('click', () => {
+                    notTwins = false
+                    displayPromo()
+                })
 
-            validName.addEventListener('click', () => {
-                namePromoChang = changPromoName.value
-                startDateChang = changStartDate.value
-                endDateChang = changEndDate.value
-                changPromo(promo._id)
-            })
+                validName.addEventListener('click', () => {
+                    notTwins = false
+                    namePromoChang = changPromoName.value
+                    startDateChang = changStartDate.value
+                    endDateChang = changEndDate.value
+                    changPromo(promo._id)
+                })
+            }
+
+
 
         })
         delet.addEventListener('click', () => {
