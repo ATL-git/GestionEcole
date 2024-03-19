@@ -52,7 +52,7 @@ h1 {
     text-align: center;
     background-color: burlywood;
     padding-bottom: 20px;
-box-shadow: 2px 2px black;
+    box-shadow: 2px 2px black;
 
 }
 
@@ -165,19 +165,19 @@ box-shadow: 2px 2px black;
     height: 30px;
 }
 
-.changPromo button{
+.changPromo button {
     width: 80%;
     margin: auto;
     cursor: pointer;
 }
 
-.endDatePromo{
+.endDatePromo {
     font-family: "Nunito Sans", sans-serif;
     font-weight: bold;
     font-size: 18px;
 }
 
-.startDatePromo{
+.startDatePromo {
     font-family: "Nunito Sans", sans-serif;
     font-weight: bold;
     font-size: 18px;

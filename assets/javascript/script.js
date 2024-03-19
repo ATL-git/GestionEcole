@@ -151,6 +151,7 @@ async function addPromo() {
         body: JSON.stringify(body)
     })
     const data = await response.json()
+
     hiddenPromo()
     displayPromo()
 }
